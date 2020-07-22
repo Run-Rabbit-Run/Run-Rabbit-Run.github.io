@@ -121,13 +121,17 @@
 
 .head__video-wrapper {
   text-align: center;
+  width: 950px;
+  height: 534px;
   overflow: hidden;
   border-radius: 15px;
   -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
           box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3); }
 
 .head__video {
-  margin-bottom: -6px; }
+  margin-bottom: -6px;
+  width: 100%;
+  height: 100%; }
 
 .head__button {
   width: 900px;
