@@ -121,8 +121,8 @@
 
 .head__video-wrapper {
   text-align: center;
-  width: 950px;
-  height: 534px;
+  max-width: 950px;
+  max-height: 534px;
   overflow: hidden;
   border-radius: 15px;
   -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
