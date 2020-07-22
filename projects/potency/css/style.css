@@ -247,7 +247,6 @@
   .slick-arrow:active {
     opacity: 0.5; }
 
-/* Кнопка назад */
 .slick-prev {
   left: 40px;
   background-image: url("../img/icons/icon-arrow-left.svg");
@@ -255,7 +254,6 @@
   background-position: center;
   background-size: contain; }
 
-/* Кнопка вперёд */
 .slick-next {
   right: 40px;
   background-image: url("../img/icons/icon-arrow-right.svg");
@@ -686,7 +684,8 @@
     -webkit-box-sizing: border-box;
             box-sizing: border-box; }
   .order__input {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    line-height: 1; }
   .order__price {
     padding: 6px; }
     .order__price--past {
@@ -694,32 +693,3 @@
   .order__text {
     font-size: 14px;
     line-height: 20px; } }
-
-@media (max-width: 767px) {
-  #timer4b010f14fff16a74387ece2996151a03 {
-    min-width: 280px !important;
-    margin: 0 20px !important;
-    height: 57px !important;
-    -webkit-box-sizing: border-box !important;
-            box-sizing: border-box !important; }
-  #timer-canvas-4b010f14fff16a74387ece2996151a03-hours,
-  #timer-canvas-4b010f14fff16a74387ece2996151a03-minutes,
-  #timer-canvas-4b010f14fff16a74387ece2996151a03-secundes {
-    width: 57px !important;
-    height: 57px !important; }
-  #timer-number-4b010f14fff16a74387ece2996151a03-hours,
-  #timer-number-4b010f14fff16a74387ece2996151a03-minutes,
-  #timer-number-4b010f14fff16a74387ece2996151a03-secundes {
-    font-size: 25px !important; }
-  #timer-element-4b010f14fff16a74387ece2996151a03-hours,
-  #timer-element-4b010f14fff16a74387ece2996151a03-minutes,
-  #timer-element-4b010f14fff16a74387ece2996151a03-secundes {
-    vertical-align: baseline !important;
-    padding: 15px 0 0 0 !important;
-    height: 57px !important; }
-  .timer-separator {
-    padding: 0 !important;
-    height: 57px !important; }
-  .timer-element {
-    width: 57px !important;
-    height: 57px !important; } }
