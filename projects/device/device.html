@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Device</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="visually-hidden">Магазин техники - Device</h1>
+
+  <header class="header position-wrapper">
+    <a class="logo">Device</a>
+
+    <div class="flex">
+      <div class="flex-left">
+        <form class="search">
+          <label aria-label="Поиск по сайту">
+            <input type="search" name="search" placeholder="Поиск по сайту">
+          </label>
+          <input class="js-search-hide" type="submit" name="Найти" value="Найти">
+        </form>
+        <a class="catalog" href="#">Каталог товаров</a>
+        <div class="plus"></div>
+      </div>
+  
+      <div class="flex-right">
+        <div class="flex">
+          <ul class="profile">
+            <li><a class="button-nav login" href="#">Войти</a></li>
+          </ul>
+          <div class="relative compare-flex">
+            <a class="button-nav compare" href="#">Сравнить</a>
+          </div>
+          <div class="relative cart-flex">
+            <a class="button-nav cart" href="#">Корзина</a>
+          </div>
+        </div>
+        <ul class="sub-menu flex">
+          <li><a href="#">Доставка</a></li>
+          <li><a href="#">Гарантия</a></li>
+          <li><a class="lacuna" href="#">Контакты</a></li>
+        </ul>
+      </div>
+  
+      <div class="flex-bottom">
+        <nav>
+          <ul class="catalog-menu">
+            <li>
+              <ul class="photo-video">
+                <li><a href="catalog.html">Виртуальная реальность</a></li>
+                <li><a href="catalog.html">Моноподы для селфи</a></li>
+                <li><a href="catalog.html">Экшн-камеры</a></li>
+              </ul>
+            </li>
+            <li>
+              <ul class="watches">
+                <li><a href="catalog.html">Фитнес-браслеты</a></li>
+                <li><a href="catalog.html">Умные часы</a></li>
+              </ul>
+            </li>
+            <li>
+              <ul class="flying">
+                <li><a href="catalog.html">Квадрокоптеры</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="slider position-wrapper">
+      <h2 class="visually-hidden">Популярные товары</h2>
+
+      <div class="slider-item js-slide-1 js-slide-show">
+        <div class="slider-left-side">
+          <img class="slider-image" src="img/slider-1.png" alt="Изображение товара">
+        </div>
+        <div class="slider-right-side">
+          <p class="slider-number">01</p>
+          <b class="slider-slogan">
+            Делай селфи,<br>
+            как Бен Стиллер!
+          </b>
+          <p class="slider-definition">Самая длинная палка для селфи доступна в нашем магазине. Восемь (Восемь, Карл!) метров длиной и весом всего 5 килограмм.</p>
+          <a class="button-long" href="#">Подробнее</a>
+          <div class="flex slider-toggle">
+            <button class="slider-button slider-button-1 slider-button-active"></button>
+            <button class="slider-button slider-button-2"></button>
+            <button class="slider-button slider-button-3"></button>
+          </div>
+          <ul class="characteristics-list">
+            <li class="charasteristics-flex">
+              <p class="characteristics-type">Длина палки</p>
+              <p class="characteristics-value">8,5 м</p>
+            </li>
+            <li class="charasteristics-flex">
+              <p class="characteristics-type">Вес палки</p>
+              <p class="characteristics-value">5 кг</p>
+            </li>
+            <li class="charasteristics-flex">
+              <p class="characteristics-type">Материал</p>
+              <p class="characteristics-value">Карбон</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="slider-item js-slide-2">
+        <div class="slider-left-side">
+          <img class="slider-image" src="img/slider-2.png" alt="Изображение товара">
+        </div>
+        <div class="slider-right-side">
+          <p class="slider-number">02</p>
+          <b class="slider-slogan">
+            Худеем<br>
+            правильно!
+          </b>
+          <p class="slider-definition">Мотивирующие фитнес-браслеты помогут найти в себе силы не пропускать занятия и соблюдать диету.</p>
+          <a class="button-long" href="#">Подробнее</a>
+          <div class="flex slider-toggle">
+            <button class="slider-button slider-button-1"></button>
+            <button class="slider-button slider-button-2 slider-button-active"></button>
+            <button class="slider-button slider-button-3"></button>
+          </div>
+          <ul class="characteristics-list">
+            <li class="charasteristics-flex">
+              <p class="characteristics-type">Без подзарядки</p>
+              <p class="characteristics-value">48 часов</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="slider-item js-slide-3">
+        <div class="slider-left-side">
+          <img class="slider-image" src="img/slider-3.png" alt="Изображение товара">
+        </div>
+        <div class="slider-right-side">
+          <p class="slider-number">03</p>
+          <b class="slider-slogan">
+            Порхает как бабочка,<br>
+            жалит как пчела!
+          </b>
+          <p class="slider-definition">Этот обычный, на первый взгляд, квадрокоптер оснащен мощным лазером, замаскированным под стандартную камеру.
+              </p>
+          <a class="button-long" href="#">Подробнее</a>
+          <div class="flex slider-toggle">
+            <button class="slider-button slider-button-1"></button>
+            <button class="slider-button slider-button-2"></button>
+            <button class="slider-button slider-button-3 slider-button-active"></button>
+          </div>
+          <ul class="characteristics-list">
+            <li class="charasteristics-flex">
+              <p class="characteristics-type">Дальность полета</p>
+              <p class="characteristics-value">800 м</p>
+            </li>
+            <li class="charasteristics-flex">
+              <p class="characteristics-type">Радиус поражения</p>
+              <p class="characteristics-value">50 м</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-category position-wrapper">
+      <ul class="category-list">
+        <li>
+          <a class="category-item" href="#">
+            <div>
+              <img src="img/glass.svg" alt="">
+            </div>
+            <p>
+              Виртуальная реальность
+            </p>
+          </a>
+        </li>
+        <li>
+          <a class="category-item" href="#">
+            <div>
+              <img class="monopod" src="img/monopod.svg" alt="">
+            </div>
+            <p>
+              Моноподы<br>
+              для селфи
+            </p>
+          </a>
+        </li>
+        <li>
+          <a class="category-item" href="#">
+            <div>
+              <img src="img/camera.svg" alt="">
+            </div>
+            <p>
+              Экшн-камеры
+            </p>
+          </a>
+        </li>
+        <li>
+          <a class="category-item" href="#">
+            <div>
+              <img src="img/bracelet.svg" alt="">
+            </div>
+            <p>
+              Фитнес-браслеты
+            </p>
+          </a>
+        </li>
+        <li>
+          <a class="category-item" href="#">
+            <div>
+              <img src="img/watch.svg" alt="">
+            </div>
+            <p>
+              Умные часы
+            </p>
+          </a>
+        </li>
+        <li>
+          <a class="category-item" href="#">
+            <div>
+              <img src="img/dron.svg" alt="">
+            </div>
+            <p>
+              Квадрокоптеры
+            </p>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <div class="services-background"></div>
+
+    <section class="services position-wrapper">
+      <h2 class="visually-hidden">Услуги</h2>
+
+      <div class="service js-delivery js-service-show">
+        <div class="services-buttons">
+          <button class="service-button delivery service-button-active" type="button">Доставка</button>
+          <button class="service-button warranty" type="button">Гарантия</button>
+          <button class="service-button credit" type="button">Кредит</button>
+        </div>
+          
+        <div class="service-content">
+          <h2>Доставка</h2>
+           <p>Мы с удовольствием доставим ваш товар прямо к вашему подъезду совершенно бесплатно! Ведь мы неплохо заработаем, поднимая его на ваш этаж.</p>
+        </div>
+    
+        <div class="service-img delivery-img">
+          <img src="img/delivery.svg" alt="">
+        </div>
+      </div>
+
+      <div class="service js-warranty">
+        <div class="services-buttons">
+          <button class="service-button delivery" type="button">Доставка</button>
+          <button class="service-button warranty service-button-active" type="button">Гарантия</button>
+          <button class="service-button credit" type="button">Кредит</button>
+        </div>
+          
+        <div class="service-content">
+          <h2>Гарантия</h2>
+           <p>Если из-за возгорания купленного у нас товара у вас сгорит дом — не переживайте, мы выдадим вам новый.<br>
+            Товар, не дом, конечно же.</p>
+        </div>
+    
+        <div class="service-img">
+          <img src="img/warranty.svg" alt="">
+        </div>
+      </div>
+
+      <div class="service js-credit">
+        <div class="services-buttons">
+          <button class="service-button delivery" type="button">Доставка</button>
+          <button class="service-button warranty" type="button">Гарантия</button>
+          <button class="service-button credit service-button-active" type="button">Кредит</button>
+        </div>
+          
+        <div class="service-content">
+          <h2>Кредит</h2>
+           <p>Залезть в долговую яму стало проще! Кредитные консультанты подберут для вас наиболее выгодные 
+            условия кредита. Выгодные для нашего банка, разумеется.</p>
+        </div>
+    
+        <div class="service-img">
+          <img src="img/credit.svg" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="friends position-wrapper">
+      <img src="img/logo-1.png" width="260" height="100" alt="">
+      <img src="img/logo-2.jpg" width="260" height="100" alt="">
+      <img src="img/logo-3.jpg" width="260" height="100" alt="">
+      <img src="img/logo-4.jpg" width="260" height="100" alt="">
+    </section>
+
+    <div class="flex-wrapper position-wrapper">
+      <section class="about-us">
+        <h2>О нас</h2>
+        <p>Огромный выбор гаджетов не оставит равнодушным гика, который есть в каждом из нас.</p>
+        <p>Мы можем доставить ваш товар в самые отдаленные точки России! DEVICE работает со многими транспортными компаниями:</p>
+        <ul>
+          <li>Деловые Линии</li>
+          <li>Автотрейдинг</li>
+          <li>ЖелДорЭкспедиция</li>
+        </ul>
+        <a class="yellow-button" href="#">Подробнее о нас</a>
+      </section>
+  
+      <section class="contacts">
+        <h2>Контакты</h2>
+        <p>Вы можете забрать товар сами, заехав в наш офис. Заодно, вы сможете проверить работоспособность покупки. Всякое бывает.</p>
+        <a class="contacts-map" href="#">
+          <img src="img/map.jpg" width="560" height="222" alt="Мы находимся по адресу г. Москва, ул. Строителей, 15">
+        </a>
+        <a class="yellow-button button-contacts" href="#">Напишите нам</a>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <div class="position-wrapper">
+        <div class="footer-top-wrapper">
+          <a class="footer-logo" href="#">Device</a>
+          <ul class="footer-login">
+            <li>
+              <a class="footer-login-button" href="#">
+                Войти
+                <svg class="login-yellow" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	              width="13px" height="12px" viewBox="0 0 13 12" enable-background="new 0 0 13 12" xml:space="preserve">
+                <path fill="#ffc600" d="M0.032,12h12.937c-0.163-2.643-2.074-4.837-4.671-5.543C9.306,5.846,9.985,4.75,9.985,3.485 C9.985,1.561,8.425,0,6.5,0S3.015,1.561,3.015,3.485c0,1.264,0.68,2.361,1.688,2.972C2.106,7.163,0.194,9.357,0.032,12z"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+          <a class="footer-login-button" href="#">
+            Сравнить
+            <svg class="compare-yellow" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 10 10" enable-background="new 0 0 10 10" xml:space="preserve">
+              <rect fill="#ffc600" x="8" y="2" width="1.984" height="8"/>
+              <rect fill="#ffc600" y="3" width="1.984" height="7"/>
+              <rect fill="#ffc600" x="4" width="2" height="10"/>
+            </svg>
+          </a>
+          <a class="footer-login-button" href="#">
+            Корзина
+            <svg class="cart-yellow" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="12px" height="12px" viewBox="0 0 12 12" enable-background="new 0 0 12 12" xml:space="preserve">
+              <g>
+              <path fill="#ffc600" d="M11.864,3.017c-0.082-0.098-0.203-0.154-0.327-0.154H9.225V4.09c0,0.563-0.484,1.022-1.08,1.022 c-0.594,0-1.078-0.458-1.078-1.022V2.863H4.909V4.09c0,0.563-0.485,1.022-1.08,1.022c-0.595,0-1.078-0.458-1.078-1.022V2.863H0.438 c-0.125,0-0.243,0.056-0.327,0.154C0.028,3.115-0.012,3.245,0.003,3.375l0.776,7.134c0.015,0.806,0.642,1.455,1.411,1.455h7.595 c0.77,0,1.396-0.649,1.411-1.455l0.776-7.134C11.987,3.245,11.946,3.115,11.864,3.017z"/>
+              <path fill="#ffc600" d="M3.829,4.499c0.239,0,0.433-0.184,0.433-0.409V1.84c0-0.632,0.672-1.022,1.295-1.022h1.079 c0.655,0,1.078,0.401,1.078,1.022v2.25c0,0.225,0.194,0.409,0.431,0.409c0.239,0,0.433-0.184,0.433-0.409V1.84 C8.577,0.773,7.761,0,6.636,0H5.557C4.367,0,3.398,0.826,3.398,1.84v2.25C3.398,4.315,3.592,4.499,3.829,4.499z"/>
+              </g>
+            </svg>
+          </a>
+        </div>
+        <div class="footer-middle-wrapper">
+          <p>г. Москва, ул. Строителей, 15</p>
+          <div class="wrapper-center">
+            <a href="#">Доставка</a>
+            <a href="#">Гарантия</a>
+            <a href="#">Контакты</a>
+          </div>
+          <p>Тел.: <a href="tel:+74954959595">+7 (495) 495-95-95</a></p>
+        </div>
+        <div class="footer-bottom-wrapper">
+          <div class="footer-flex-left">
+            <div class="yellow-line"></div>
+          </div>
+          <ul class="social-list">
+            <li>
+              <a class="fb" href="#" aria-label="Фейсбук"></a>
+            </li>
+            <li>
+              <a class="inst" href="#" aria-label="Инстаграм"></a>
+            </li>
+            <li>
+              <a class="tw" href="#" aria-label="Твиттер"></a>
+            </li>
+          </ul>
+          <div class="footer-flex-right">
+            <a class="html-academy" href="#" aria-label="HTML Academy"></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="popup-background js-popup-write-us">
+    <section class="popup feedback">
+        <form class="feedback-form" action="#" method="POST">
+          <div class="popup-flex">
+            <p>
+              <label for="name">
+                Ваше имя:
+              </label>
+              <input type="text" name="name" id="name" placeholder="Имя Фамилия" required>
+            </p>
+            <p>
+              <label for="email">
+                Ваш e-mail:
+              </label for="email">
+              <input type="email" name="email" id="email" placeholder="email@example.com" required>
+            </p>
+          </div>
+          <p>
+            <label for="letter">
+              Текст письма:
+            </label for="letter">
+            <textarea rows="8" name="letter" id="letter" placeholder="В свободной форме"></textarea>
+          </p>
+          <button class="submit-form" type="submit">Отправить</button>
+        </form>
+        <button class="modal-close" type="button" aria-label="Закрыть окно"></button>
+      </section>
+    </div>
+
+    <div class="popup-background js-popup-map">
+      <section class="popup map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2249.1125488779976!2d37.52742931592807!3d55.687030980535816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54cf65f5c8955%3A0x694710ccd55501e!2z0YPQuy4g0KHRgtGA0L7QuNGC0LXQu9C10LksIDE1LCDQnNC-0YHQutCy0LAsIDExOTMxMQ!5e0!3m2!1sru!2sru!4v1574607553038!5m2!1sru!2sru" width="960" height="559" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+        <p>
+          <img src="/img/map-big.jpg" width="960" height="559" alt="Наш адрес: город Москва, улица Строителей, 15">
+        </p>
+        <button class="modal-close" type="button" aria-label="Закрыть окно"></button>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    var buttonCatalog = document.querySelector(".catalog");
+    var subMenu = document.querySelector(".flex-bottom");
+    var search = document.querySelector("input[type='search']");
+    var searchButton = document.querySelector("input[name='Найти']");
+    var plusButton = document.querySelector(".plus");
+    var sliderButton1 = document.querySelectorAll(".slider-button-1");
+    var sliderButton2 = document.querySelectorAll(".slider-button-2");
+    var sliderButton3 = document.querySelectorAll(".slider-button-3");
+    var slide1 = document.querySelector(".js-slide-1");
+    var slide2 = document.querySelector(".js-slide-2");
+    var slide3 = document.querySelector(".js-slide-3");
+    var slides = [slide1, slide2, slide3];
+    var delivery = document.querySelector(".js-delivery");
+    var warranty = document.querySelector(".js-warranty");
+    var credit = document.querySelector(".js-credit");
+    var deliveryButton = document.querySelectorAll(".delivery");
+    var warrantyButton = document.querySelectorAll(".warranty");
+    var creditButton = document.querySelectorAll(".credit");
+    var services = [delivery, warranty, credit];
+    var buttonWriteUs = document.querySelector(".button-contacts");
+    var writeUs = document.querySelector(".js-popup-write-us");
+    var mapClick = document.querySelector(".contacts-map");
+    var mapPopup = document.querySelector(".js-popup-map");
+    var closePopup = document.querySelectorAll(".modal-close");
+    var nameFocus = document.querySelector("input[name='name']");
+    var emailFocus = document.querySelector("input[name='email']");
+    var feedbackFocus = document.querySelector("textarea[name='letter']");
+
+
+    var isStorageSupport = true;
+    var storage = "";
+
+    try {
+      storage = localStorage.getItem("login");
+    } catch (err) {
+      isStorageSupport = false;
+    }
+
+    buttonWriteUs.addEventListener("click", function (evt) {
+      evt.preventDefault();
+      writeUs.classList.add("js-popup-show");
+      if (storage) {
+        nameFocus.value = storage;
+        emailFocus.value = storage;
+        feedbackFocus.focus();
+      } else {
+        nameFocus.focus();
+      }
+    });
+
+    mapClick.addEventListener("click", function (evt) {
+      evt.preventDefault();
+      mapPopup.classList.add("js-popup-show");
+    });
+
+    for (var i = 0; i <= closePopup.length - 1; i++) {
+      closePopup[i].addEventListener("click", function (evt) {
+        evt.preventDefault();
+        writeUs.classList.remove("js-popup-show");
+        mapPopup.classList.remove("js-popup-show");
+      });
+    }
+
+    window.addEventListener("keydown", function (evt) {
+      if (evt.keyCode === 27) {
+        if (mapPopup.classList.contains("js-popup-show") || writeUs.classList.contains("js-popup-show")) {
+          evt.preventDefault();
+          writeUs.classList.remove("js-popup-show");
+          mapPopup.classList.remove("js-popup-show");
+        }
+      }
+    });
+
+    buttonCatalog.addEventListener("click", function (evt) {
+      evt.preventDefault();
+      if (subMenu.classList.contains("js-menu-show")) {
+        subMenu.classList.remove("js-menu-show");
+      } else {
+        subMenu.classList.add("js-menu-show");
+      }
+    });
+
+    plusButton.addEventListener("click", function (evt) {
+      evt.preventDefault();
+      if (subMenu.classList.contains("js-menu-show")) {
+        subMenu.classList.remove("js-menu-show");
+      } else {
+        subMenu.classList.add("js-menu-show");
+      }
+    });
+
+    search.addEventListener("focus", function (evt) {
+      evt.preventDefault();
+      searchButton.classList.remove("js-search-hide");
+      searchButton.classList.add("js-search-show");
+    });
+
+    search.addEventListener("blur", function (evt) {
+      evt.preventDefault();
+      searchButton.classList.remove("js-search-show");
+      searchButton.classList.add("js-search-hide");
+    });
+
+    for (var j = 0; j <= sliderButton1.length - 1; j++) {
+      sliderButton1[j].addEventListener("click", function (evt) {
+        evt.preventDefault();
+        if (!slide1.classList.contains("js-slide-show")) {
+          for (var i = 0; i <= slides.length - 1; i++) {
+            slides[i].classList.remove("js-slide-show");
+          }
+          slide1.classList.add("js-slide-show");
+        }
+      });
+    }
+
+    for (var j = 0; j <= sliderButton2.length - 1; j++) {
+      sliderButton2[j].addEventListener("click", function (evt) {
+        evt.preventDefault();
+        if (!slide2.classList.contains("js-slide-show")) {
+          for (var i = 0; i <= slides.length - 1; i++) {
+            slides[i].classList.remove("js-slide-show");
+          }
+          slide2.classList.add("js-slide-show");
+        }
+      });
+    }
+
+    for (var j = 0; j <= sliderButton3.length - 1; j++) {
+      sliderButton3[j].addEventListener("click", function (evt) {
+        evt.preventDefault();
+        if (!slide3.classList.contains("js-slide-show")) {
+          for (var i = 0; i <= slides.length - 1; i++) {
+            slides[i].classList.remove("js-slide-show");
+          }
+          slide3.classList.add("js-slide-show");
+        }
+      });
+    }
+
+    for (var j = 0; j <= deliveryButton.length - 1; j++) {
+      deliveryButton[j].addEventListener("click", function (evt) {
+        evt.preventDefault();
+        if (!delivery.classList.contains("js-service-show")) {
+          for (var i = 0; i <= services.length - 1; i++) {
+            services[i].classList.remove("js-service-show");
+          }
+          delivery.classList.add("js-service-show");
+        }
+      });
+    }
+
+    for (var j = 0; j <= warrantyButton.length - 1; j++) {
+      warrantyButton[j].addEventListener("click", function (evt) {
+        evt.preventDefault();
+        if (!warranty.classList.contains("js-service-show")) {
+          for (var i = 0; i <= services.length - 1; i++) {
+            services[i].classList.remove("js-service-show");
+          }
+          warranty.classList.add("js-service-show");
+        }
+      });
+    }
+
+    for (var j = 0; j <= creditButton.length - 1; j++) {
+      creditButton[j].addEventListener("click", function (evt) {
+        evt.preventDefault();
+        if (!credit.classList.contains("js-service-show")) {
+          for (var i = 0; i <= services.length - 1; i++) {
+            services[i].classList.remove("js-service-show");
+          }
+          credit.classList.add("js-service-show");
+        }
+      });
+    }
+  </script>
+</body>
+</html>
