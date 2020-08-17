@@ -234,8 +234,8 @@ let video = document.querySelector('.video');
 
 onOffButton.onclick = function () {
   if (pc.classList.contains('pc-on')) {
-    // pc.classList.remove('pc-on');
-    // pc.classList.add('pc-off');
+    pc.classList.remove('pc-on');
+    pc.classList.add('pc-off');
   } else {
     pc.classList.remove('pc-off');
     pc.classList.add('pc-on');
@@ -243,9 +243,9 @@ onOffButton.onclick = function () {
     notes.style.color = colorGreen;
 
     function videoOn() {
-      // notes.style.display = 'none';
-      // video.style.display = 'block';
-      // video.play();
+      notes.style.display = 'none';
+      video.style.display = 'block';
+      video.play();
     }
 
     function videoOff() {
@@ -254,8 +254,8 @@ onOffButton.onclick = function () {
       notes.focus();
     }
 
-    // setTimeout(videoOn, 1500);
-    // setTimeout(videoOff, 5500);
+    setTimeout(videoOn, 1500);
+    setTimeout(videoOff, 5500);
   }
 };
 
