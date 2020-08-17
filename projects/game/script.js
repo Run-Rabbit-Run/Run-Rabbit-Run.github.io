@@ -73,9 +73,63 @@ caps.onclick = function () {
   }
 };
 
-// дата и время
-let time = document.querySelector('.time');
+// Передвижение по Карте
+let myPlace = document.querySelector('.my-place');
+let rabbitTown = document.querySelector('.rabbit-town');
+let hellTown = document.querySelector('.hell-town');
+let kuralevoTown = document.querySelector('.wtf-town');
+let wrecketCar = document.querySelector('.wrecket-car');
+let prisone = document.querySelector('.prisone');
+let backs = ['rabbit-village', 'helltown', 'kuralesovo', 'car', 'prison'];
 
+rabbitTown.onclick = function () {
+  myPlace.style.top = '286px';
+  myPlace.style.left = '209px';
+  setTimeout(function () {
+    let rabbitBcg = backs[0];
+    body.style.backgroundImage = `url("img/${rabbitBcg}.jpg")`;
+  }, 2500);
+};
+
+hellTown.onclick = function () {
+  myPlace.style.top = '120px';
+  myPlace.style.left = '42px';
+  setTimeout(function () {
+    let hellBcg = backs[1];
+    body.style.backgroundImage = `url("img/${hellBcg}.jpg")`;
+  }, 2500);
+};
+
+kuralevoTown.onclick = function () {
+  myPlace.style.top = '60px';
+  myPlace.style.left = '344px';
+  setTimeout(function () {
+    let kuralevoBcg = backs[2];
+    body.style.backgroundImage = `url("img/${kuralevoBcg}.jpg")`;
+  }, 2500);
+};
+
+wrecketCar.onclick = function () {
+  myPlace.style.top = '10px';
+  myPlace.style.left = '117px';
+  setTimeout(function () {
+    let wrecketCarBcg = backs[3];
+    body.style.backgroundImage = `url("img/${wrecketCarBcg}.jpg")`;
+  }, 2500);
+};
+
+prisone.onclick = function () {
+  myPlace.style.top = '266px';
+  myPlace.style.left = '526px';
+  setTimeout(function () {
+    let prisoneBcg = backs[4];
+    body.style.backgroundImage = `url("img/${prisoneBcg}.jpg")`;
+  }, 2500);
+};
+
+// дата и время
+let body = document.querySelector('.body');
+let time = document.querySelector('.time');
 
 setInterval(function () {
   let date = new Date();
@@ -93,38 +147,25 @@ setInterval(function () {
   time.textContent = `${hours}:${minutes}`;
 }, 1000);
 
-// Передвижение по Карте
-let myPlace = document.querySelector('.my-place');
-let rabbitTown = document.querySelector('.rabbit-town');
-let hellTown = document.querySelector('.hell-town');
-let kuralevoTown = document.querySelector('.wtf-town');
-let wrecketCar = document.querySelector('.wrecket-car');
-let prisone = document.querySelector('.prisone');
+// меняем фон на ночной
+setInterval(function () {
+  let date = new Date();
+  let hours = date.getHours();
 
-rabbitTown.onclick = function () {
-  myPlace.style.top = '286px';
-  myPlace.style.left = '209px';
-};
-
-hellTown.onclick = function () {
-  myPlace.style.top = '120px';
-  myPlace.style.left = '42px';
-};
-
-kuralevoTown.onclick = function () {
-  myPlace.style.top = '60px';
-  myPlace.style.left = '344px';
-};
-
-wrecketCar.onclick = function () {
-  myPlace.style.top = '10px';
-  myPlace.style.left = '117px';
-};
-
-prisone.onclick = function () {
-  myPlace.style.top = '266px';
-  myPlace.style.left = '526px';
-};
+  if (hours >= 18 || hours <= 8) {
+    for (let i = 0; i < backs.length; i += 1) {
+      if (backs[i].substring(backs[i].length - 6) !== '-night') {
+        return backs[i] = `${backs[i]}-night`;
+      }
+    }
+  } else {
+    for (let i = 0; i < backs.length; i += 1) {
+      if (backs[i].substring(backs[i].length - 6) === '-night') {
+        return backs[i] = `${backs[i].substring(0, backs[i].length - 6)}`;
+      }
+    }
+  }
+}, 1000);
 
 // Переключение Режимов (карта, )
 let map = document.querySelector('.map');
@@ -193,8 +234,8 @@ let video = document.querySelector('.video');
 
 onOffButton.onclick = function () {
   if (pc.classList.contains('pc-on')) {
-    pc.classList.remove('pc-on');
-    pc.classList.add('pc-off');
+    // pc.classList.remove('pc-on');
+    // pc.classList.add('pc-off');
   } else {
     pc.classList.remove('pc-off');
     pc.classList.add('pc-on');
@@ -202,9 +243,9 @@ onOffButton.onclick = function () {
     notes.style.color = colorGreen;
 
     function videoOn() {
-      notes.style.display = 'none';
-      video.style.display = 'block';
-      video.play();
+      // notes.style.display = 'none';
+      // video.style.display = 'block';
+      // video.play();
     }
 
     function videoOff() {
@@ -213,7 +254,10 @@ onOffButton.onclick = function () {
       notes.focus();
     }
 
-    setTimeout(videoOn, 1500);
-    setTimeout(videoOff, 5500);
+    // setTimeout(videoOn, 1500);
+    // setTimeout(videoOff, 5500);
   }
 };
+
+
+

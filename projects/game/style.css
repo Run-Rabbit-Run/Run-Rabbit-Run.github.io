@@ -10,10 +10,10 @@
   font-display: swap;
 }
 
-body {
+.body {
   font-family: "Monofonto", sans-serif;
 
-  background-image: url(img/autumn.jpg);
+  background-image: url(img/rabbit-village.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
