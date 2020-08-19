@@ -25,10 +25,8 @@ var closePopup = document.querySelectorAll(".modal-close");
 var nameFocus = document.querySelector("input[name='name']");
 var emailFocus = document.querySelector("input[name='email']");
 var feedbackFocus = document.querySelector("textarea[name='letter']");
-var inCart = document.querySelector(".in-cart");
 var itemImage = document.querySelector(".item-img-wrapper");
-var itemImageOpacity = document.querySelector(".item-img");
-var itemCompare = document.querySelector(".item-compare");
+
 
 var isStorageSupport = true;
 var storage = "";
@@ -174,16 +172,4 @@ for (var j = 0; j <= creditButton.length - 1; j++) {
       credit.classList.add("js-service-show");
     }
   });
-}
-
-itemImage.onmouseover = function (evt) {
-  inCart.classList.add("js-button-show");
-  itemImageOpacity.classList.add("js-item-image-hover");
-  itemCompare.classList.add("js-button-show");
-}
-
-itemImage.onmouseout = function (evt) {
-  inCart.classList.remove("js-button-show");
-  itemImageOpacity.classList.remove("js-item-image-hover");
-  itemCompare.classList.remove("js-button-show");
 }
