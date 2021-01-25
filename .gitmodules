@@ -1,0 +1,3 @@
+[submodule "projects/projects/game"]
+	path = projects/projects/game
+	url = https://github.com/Run-Rabbit-Run/jrpg-battle-game
