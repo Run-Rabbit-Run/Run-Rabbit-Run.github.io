@@ -600,6 +600,7 @@ const background = new BackgroundBattle(battleLocation[getRandomInt(0, (battleLo
 
 // создаём героя
 const chosenHero = prompt('Введите номер героя которого хотите выбрать: 1. Воин 2. Самурай', 1);
+// const chosenHero = 1;
 let hero;
 
 if (Number(chosenHero) === 2) {
