@@ -49,26 +49,24 @@ class BackgroundBattle {
 
 // Cоздаём героя
 class Hero {
-  constructor(name, imgPath, imgWidth, imgHeight, scaleMultiplier, deathSprites, takeHitSprites, attack1Sprites, health = 100, baseAttack = 10, armor = 1) {
+  constructor(name, imgPath, imgHeight, scaleMultiplier, idleSprites, runSprites, deathSprites, takeHitSprites, attack1Sprites, health = 100, baseAttack = 10, armor = 1) {
     this.name = name;
     this.attack = baseAttack;
     this.health = health;
+    this.armor = armor;
     this.imgPath = imgPath;
-    this.imgWidth = imgWidth * scaleMultiplier;
-    this.imgHeight = imgHeight * scaleMultiplier;
-    this.numberOfSprites = imgWidth / imgHeight;
+    this.imgHeight = (imgHeight * scaleMultiplier) / (1440 / 100);
     this.animationTime = 800;
-    this.animationTick = imgHeight * scaleMultiplier;
-    this.animationInterval = 800 / (imgWidth / imgHeight);
+    this.idleSprites = idleSprites;
+    this.runSprites = runSprites;
     this.deathSprites = deathSprites;
     this.takeHitSprites = takeHitSprites;
     this.attack1Sprites = attack1Sprites;
-    this.armor = armor;
   }
 
   drawHero() {
-    heroHTML.style.width = `${this.imgHeight}px`;
-    heroHTML.style.height = `${this.imgHeight}px`;
+    heroHTML.style.width = `${this.imgHeight}vw`;
+    heroHTML.style.height = `${this.imgHeight}vw`;
     heroHpHTML.innerHTML = `${this.health}`;
     heroArmorHTML.innerHTML = `${this.armor}`;
   }
@@ -85,16 +83,16 @@ class Hero {
     heroHTML.style.backgroundImage = `url(${this.imgPath}/Idle.png)`;
 
     let position = 0;
+    const lastSpritePosition = (this.imgHeight * this.idleSprites) - this.imgHeight;
 
     this.idle = setInterval(() => {
-      heroHTML.style.backgroundPosition = `-${position}px`;
-
-      if (position < this.imgWidth - this.animationTick) {
-        position += this.animationTick;
+      heroHTML.style.backgroundPosition = `-${position}vw`;
+      if (Math.round(position) < Math.round(lastSpritePosition)) {
+        position += this.imgHeight;
       } else {
         position = 0;
       }
-    }, this.animationInterval);
+    }, (this.animationTime / this.idleSprites));
   }
 
   stopAnimationIdle() {
@@ -105,53 +103,56 @@ class Hero {
     heroHTML.style.backgroundImage = `url(${this.imgPath}/Run.png)`;
 
     let position = 0;
-    const translateTick = (100 / 2) / this.numberOfSprites;
     let translateX = 0;
+    const translateTick = (100 / 2) / this.runSprites;
+    const lastSpritePosition = (this.imgHeight * this.runSprites) - this.imgHeight;
 
     const run = setInterval(() => {
-      heroHTML.style.backgroundPosition = `-${position}px`;
+      heroHTML.style.backgroundPosition = `-${position}vw`;
       heroHTML.style.transform = `translateX(${translateX}vw)`;
-      if (position < this.imgWidth - this.animationTick) {
-        position += this.animationTick;
+      if (Math.round(position) < Math.round(lastSpritePosition)) {
+        position += this.imgHeight;
         translateX += translateTick;
       } else {
         position = 0;
         clearInterval(run);
       }
-    }, this.animationInterval);
+    }, (this.animationTime / this.runSprites));
   }
 
   animateRunBack() {
     heroHTML.style.backgroundImage = `url(${this.imgPath}/RunBack.png)`;
 
     let position = 0;
-    const translateTick = (100 / 2) / this.numberOfSprites;
+    const translateTick = (100 / 2) / this.runSprites;
     let translateX = (100 / 2) - translateTick;
+    const lastSpritePosition = (this.imgHeight * this.runSprites) - this.imgHeight;
 
     const runBack = setInterval(() => {
-      heroHTML.style.backgroundPosition = `-${position}px`;
+      heroHTML.style.backgroundPosition = `-${position}vw`;
       heroHTML.style.transform = `translateX(${translateX}vw)`;
-      if (position < this.imgWidth - this.animationTick) {
-        position += this.animationTick;
+      if (Math.round(position) < Math.round(lastSpritePosition)) {
+        position += this.imgHeight;
         translateX -= translateTick;
       } else {
         position = 0;
         clearInterval(runBack);
         this.animateIdle();
       }
-    }, this.animationInterval);
+    }, (this.animationTime / this.runSprites));
   }
 
   animateAttack1() {
     heroHTML.style.backgroundImage = `url(${this.imgPath}/Attack1.png)`;
 
     let position = 0;
+    const lastSpritePosition = (this.imgHeight * this.attack1Sprites) - this.imgHeight;
 
     const attack = setInterval(() => {
-      heroHTML.style.backgroundPosition = `-${position}px`;
+      heroHTML.style.backgroundPosition = `-${position}vw`;
 
-      if (position < (this.imgHeight * this.attack1Sprites) - this.animationTick) {
-        position += this.animationTick;
+      if (Math.round(position) < Math.round(lastSpritePosition)) {
+        position += this.imgHeight;
       } else {
         position = 0;
         clearInterval(attack);
@@ -163,12 +164,13 @@ class Hero {
     heroHTML.style.backgroundImage = `url(${this.imgPath}/Attack2.png)`;
 
     let position = 0;
+    const lastSpritePosition = (this.imgHeight * this.attack1Sprites) - this.imgHeight;
 
     const attack = setInterval(() => {
-      heroHTML.style.backgroundPosition = `-${position}px`;
+      heroHTML.style.backgroundPosition = `-${position}vw`;
 
-      if (position < (this.imgHeight * this.attack1Sprites) - this.animationTick) {
-        position += this.animationTick;
+      if (Math.round(position) < Math.round(lastSpritePosition)) {
+        position += this.imgHeight;
       } else {
         position = 0;
         clearInterval(attack);
@@ -180,12 +182,13 @@ class Hero {
     heroHTML.style.backgroundImage = `url(${this.imgPath}/Attack3.png)`;
 
     let position = 0;
+    const lastSpritePosition = (this.imgHeight * this.attack1Sprites) - this.imgHeight;
 
     const attack = setInterval(() => {
-      heroHTML.style.backgroundPosition = `-${position}px`;
+      heroHTML.style.backgroundPosition = `-${position}vw`;
 
-      if (position < (this.imgHeight * this.attack1Sprites) - this.animationTick) {
-        position += this.animationTick;
+      if (Math.round(position) < Math.round(lastSpritePosition)) {
+        position += this.imgHeight;
       } else {
         position = 0;
         clearInterval(attack);
@@ -195,16 +198,16 @@ class Hero {
 
   animateDeath() {
     this.stopAnimationIdle();
-
-    let position = 0;
-
     heroHTML.style.backgroundImage = `url(${this.imgPath}/Death.png)`;
 
-    const death = setInterval(() => {
-      heroHTML.style.backgroundPosition = `${-position}px`;
+    let position = 0;
+    const lastSpritePosition = (this.imgHeight * this.deathSprites) - this.imgHeight;
 
-      if (position < (this.imgHeight * this.deathSprites) - this.animationTick) {
-        position += this.animationTick;
+    const death = setInterval(() => {
+      heroHTML.style.backgroundPosition = `-${position}vw`;
+
+      if (Math.round(position) < Math.round(lastSpritePosition)) {
+        position += this.imgHeight;
       } else {
         clearInterval(death);
       }
@@ -212,7 +215,7 @@ class Hero {
   }
 
   animateHitBar() {
-    heroHitBarHTML.style.animation = 'hit 2.5s';
+    heroHitBarHTML.style.animation = 'hit 3s';
     setTimeout(() => {
       heroHitBarHTML.style.animation = 'none';
     }, 2500);
@@ -221,16 +224,16 @@ class Hero {
   animateHit() {
     this.stopAnimationIdle();
     this.animateHitBar();
-
-    let position = 0;
-
     heroHTML.style.backgroundImage = `url(${this.imgPath}/Take-Hit.png)`;
 
-    const takeHit = setInterval(() => {
-      heroHTML.style.backgroundPosition = `${-position}px`;
+    let position = 0;
+    const lastSpritePosition = (this.imgHeight * this.takeHitSprites) - this.imgHeight;
 
-      if (position < (this.imgHeight * this.takeHitSprites) - this.animationTick) {
-        position += this.animationTick;
+    const takeHit = setInterval(() => {
+      heroHTML.style.backgroundPosition = `-${position}vw`;
+
+      if (Math.round(position) < Math.round(lastSpritePosition)) {
+        position += this.imgHeight;
       } else {
         clearInterval(takeHit);
         this.animateIdle();
@@ -241,27 +244,25 @@ class Hero {
 
 // Создаём класс врага
 class Enemy {
-  constructor(name, imgPath, imgWidth, imgHeight, scaleMultiplier, attack1Sprites, runSprites, health, baseAttack, armor = 1) {
+  constructor(name, imgPath, imgHeight, scaleMultiplier, idleSprites, runSprites, deathSprites, takeHitSprites, attack1Sprites, health, baseAttack, armor = 1) {
     this.name = name;
     this.attack = baseAttack;
     this.health = health;
-    this.imgPath = imgPath;
-    this.imgWidth = imgWidth * scaleMultiplier;
-    this.imgHeight = imgHeight * scaleMultiplier;
-    this.numberOfSprites = imgWidth / imgHeight;
-    this.numberOfAttack1Sprites = attack1Sprites;
-    this.animationTime = 800;
-    this.animationTick = imgHeight * scaleMultiplier;
-    this.animationInterval = 800 / (imgWidth / imgHeight);
-    this.scaleMultiplier = scaleMultiplier;
-    this.runSprites = runSprites;
-    this.skills = [];
     this.armor = armor;
+    this.imgPath = imgPath;
+    this.imgHeight = (imgHeight * scaleMultiplier) / (1440 / 100);
+    this.animationTime = 800;
+    this.idleSprites = idleSprites;
+    this.runSprites = runSprites;
+    this.deathSprites = deathSprites;
+    this.takeHitSprites = takeHitSprites;
+    this.attack1Sprites = attack1Sprites;
+    this.skills = [];
   }
 
   drawEnemy() {
-    enemyHTML.style.width = `${this.imgHeight}px`;
-    enemyHTML.style.height = `${this.imgHeight}px`;
+    enemyHTML.style.width = `${this.imgHeight}vw`;
+    enemyHTML.style.height = `${this.imgHeight}vw`;
     enemyHpHTML.innerHTML = `${this.health}`;
     enemyArmorHTML.innerHTML = `${this.armor}`;
   }
@@ -270,16 +271,17 @@ class Enemy {
     enemyHTML.style.backgroundImage = `url(${this.imgPath}/Idle.png)`;
 
     let position = 0;
+    const lastSpritePosition = (this.imgHeight * this.idleSprites) - this.imgHeight;
 
     this.idle = setInterval(() => {
-      enemyHTML.style.backgroundPosition = `-${position}px`;
+      enemyHTML.style.backgroundPosition = `-${position}vw`;
 
-      if (position < this.imgWidth - this.animationTick) {
-        position += this.animationTick;
+      if (Math.round(position) < Math.round(lastSpritePosition)) {
+        position += this.imgHeight;
       } else {
         position = 0;
       }
-    }, this.animationInterval);
+    }, (this.animationTime / this.idleSprites));
   }
 
   stopAnimationIdle() {
@@ -293,19 +295,19 @@ class Enemy {
   }
 
   animateRun() {
+    enemyHTML.style.backgroundImage = `url(${this.imgPath}/Run.png)`;
+    
     const imgWidth = this.imgHeight * this.runSprites;
     const animationTick = imgWidth / this.runSprites;
     const translateTick = (100 / 2) / this.runSprites;
     let position = -(imgWidth - animationTick);
     let translateX = 0;
-
-    enemyHTML.style.backgroundImage = `url(${this.imgPath}/Run.png)`;
-
+    
     const run = setInterval(() => {
-      enemyHTML.style.transform = `translateX(${-(position / this.runSprites)}px)`;
-      enemyHTML.style.backgroundPosition = `${position}px`;
+      enemyHTML.style.backgroundPosition = `${position}vw`;
       enemyHTML.style.transform = `translateX(-${translateX}vw)`;
-      if (position < 0) {
+
+      if (Math.round(position) < 0) {
         position += animationTick;
         translateX += translateTick;
       } else {
@@ -323,13 +325,13 @@ class Enemy {
     let translateX = -((100 / 2) - translateTick);
 
     enemyHTML.style.backgroundImage = `url(${this.imgPath}/RunBack.png)`;
-    enemyHTML.style.backgroundPosition = `-${position}px`;
+    enemyHTML.style.backgroundPosition = `-${position}vw`;
     enemyHTML.style.transform = `translateX(${translateX}vw)`;
 
     const runBack = setInterval(() => {
       enemyHTML.style.transform = `translateX(${translateX}vw)`;
-      enemyHTML.style.backgroundPosition = `-${position}px`;
-      if (position < imgWidth - animationTick) {
+      enemyHTML.style.backgroundPosition = `-${position}vw`;
+      if (Math.round(position) < imgWidth - animationTick) {
         position += animationTick;
         translateX += translateTick;
       } else {
@@ -341,78 +343,83 @@ class Enemy {
   }
 
   animateAttack1() {
-    const imgWidth = this.imgHeight * this.numberOfAttack1Sprites;
-    const animationTick = imgWidth / this.numberOfAttack1Sprites;
+    enemyHTML.style.backgroundImage = `url(${this.imgPath}/Attack1.png)`;
+
+    const imgWidth = this.imgHeight * this.attack1Sprites;
+    const animationTick = imgWidth / this.attack1Sprites;
     let position = -(imgWidth - animationTick);
 
-    enemyHTML.style.backgroundImage = `url(${this.imgPath}/Attack1.png)`;
-    enemyHTML.style.backgroundPosition = `${position}px`;
+    enemyHTML.style.backgroundPosition = `${position}vw`;
+
     const attack = setInterval(() => {
-      enemyHTML.style.backgroundPosition = `${position}px`;
-      if (position < 0) {
+      enemyHTML.style.backgroundPosition = `${position}vw`;
+      if (Math.round(position) < 0) {
         position += animationTick;
       } else {
         position = 0;
         clearInterval(attack);
       }
-    }, (this.animationTime / this.numberOfAttack1Sprites));
+    }, (this.animationTime / this.attack1Sprites));
   }
 
   animateAttack2() {
-    const imgWidth = this.imgHeight * this.numberOfAttack1Sprites;
-    const animationTick = imgWidth / this.numberOfAttack1Sprites;
+    enemyHTML.style.backgroundImage = `url(${this.imgPath}/Attack2.png)`;
+
+    const imgWidth = this.imgHeight * this.attack1Sprites;
+    const animationTick = imgWidth / this.attack1Sprites;
     let position = -(imgWidth - animationTick);
 
-    enemyHTML.style.backgroundImage = `url(${this.imgPath}/Attack2.png)`;
-    enemyHTML.style.backgroundPosition = `${position}px`;
+    enemyHTML.style.backgroundPosition = `${position}vw`;
+
     const attack = setInterval(() => {
-      enemyHTML.style.backgroundPosition = `${position}px`;
-      if (position < 0) {
+      enemyHTML.style.backgroundPosition = `${position}vw`;
+      if (Math.round(position) < 0) {
         position += animationTick;
       } else {
         position = 0;
         clearInterval(attack);
       }
-    }, (this.animationTime / this.numberOfAttack1Sprites));
+    }, (this.animationTime / this.attack1Sprites));
   }
 
   animateAttack3() {
-    const imgWidth = this.imgHeight * this.numberOfAttack1Sprites;
-    const animationTick = imgWidth / this.numberOfAttack1Sprites;
+    const imgWidth = this.imgHeight * this.attack1Sprites;
+    const animationTick = imgWidth / this.attack1Sprites;
     let position = -(imgWidth - animationTick);
 
     enemyHTML.style.backgroundImage = `url(${this.imgPath}/Attack3.png)`;
-    enemyHTML.style.backgroundPosition = `${position}px`;
+    enemyHTML.style.backgroundPosition = `${position}vw`;
     const attack = setInterval(() => {
-      enemyHTML.style.backgroundPosition = `${position}px`;
-      if (position < 0) {
+      enemyHTML.style.backgroundPosition = `${position}vw`;
+      if (Math.round(position) < 0) {
         position += animationTick;
       } else {
         position = 0;
         clearInterval(attack);
       }
-    }, (this.animationTime / this.numberOfAttack1Sprites));
+    }, (this.animationTime / this.attack1Sprites));
   }
 
   animateDeath() {
     this.stopAnimationIdle();
 
-    let position = this.imgWidth - this.animationTick;
+    const lastSpritePosition = (this.imgHeight * this.deathSprites) - this.imgHeight;
+    let position = lastSpritePosition;
 
     const death = setInterval(() => {
       enemyHTML.style.backgroundImage = `url(${this.imgPath}/Death.png)`;
-      enemyHTML.style.backgroundPosition = `${-position}px`;
+      enemyHTML.style.backgroundPosition = `-${position}vw`;
 
-      if (position > 0) {
-        position -= this.animationTick;
+      if (Math.round(position) > 0) {
+        position -= this.imgHeight;
       } else {
         clearInterval(death);
       }
-    }, this.animationInterval);
+    }, (this.animationTime / this.deathSprites));
   }
 
   animateHitBar() {
-    enemyHitBarHTML.style.animation = 'hit 2.5s';
+    enemyHitBarHTML.style.animation = 'hit 3s';
     setTimeout(() => {
       enemyHitBarHTML.style.animation = 'none';
     }, 2500);
@@ -422,19 +429,20 @@ class Enemy {
     this.stopAnimationIdle();
     this.animateHitBar();
 
-    let position = this.imgWidth - this.animationTick;
+    const lastSpritePosition = (this.imgHeight * this.deathSprites) - this.imgHeight;
+    let position = lastSpritePosition;
 
     const takeHit = setInterval(() => {
       enemyHTML.style.backgroundImage = `url(${this.imgPath}/Take-Hit.png)`;
-      enemyHTML.style.backgroundPosition = `${-position}px`;
+      enemyHTML.style.backgroundPosition = `-${position}vw`;
 
-      if (position > 0) {
-        position -= this.animationTick;
+      if (Math.round(position) > 0) {
+        position -= this.imgHeight;
       } else {
         clearInterval(takeHit);
         this.animateIdle();
       }
-    }, this.animationInterval);
+    }, (this.animationTime / this.takeHitSprites));
   }
 }
 
@@ -507,7 +515,7 @@ class SkillHero {
       if (enemy.health <= 0) {
         setTimeout(enemy.animateDeath.bind(enemy), (hero.animationTime * 1.5)); // анимация смерти
         setTimeout(enemy.animateHitBar.bind(enemy), (hero.animationTime * 1.5)); // количество нанесённого урона
-        setTimeout(() => alert(`Поздравляем! Могущественный ${enemy.name} повержен! Обновите страницу, чтобы совершить ещё один подвиг!`), (enemy.animationTime * 3.5));
+        setTimeout(() => alert(`Поздравляем! \nМогущественный ${enemy.name} повержен! \nОбновите страницу, чтобы совершить ещё один подвиг!`), (enemy.animationTime * 3.5));
       } else {
         setTimeout(enemy.animateHit.bind(enemy), (hero.animationTime * 1.5)); // анимация получения урона
         setTimeout(enemy.startTurn.bind(enemy), (hero.animationTime * 3));
@@ -586,7 +594,7 @@ class SkillEnemy {
     if (hero.health <= 0) {
       setTimeout(hero.animateDeath.bind(hero), (enemy.animationTime * 1.5));
       setTimeout(hero.animateHitBar.bind(hero), (enemy.animationTime * 1.5));
-      setTimeout(() => alert(`Вас изничтожил жалкий ${enemy.name}! Обновите страницу, чтобы опозориться вновь!`), (enemy.animationTime * 3.5));
+      setTimeout(() => alert(`Вас изничтожил жалкий ${enemy.name}! \nОбновите страницу, чтобы опозориться вновь!`), (enemy.animationTime * 3.5));
     } else {
       setTimeout(hero.animateHit.bind(hero), (enemy.animationTime * 1.5));
       setTimeout(hero.startTurn.bind(hero), (enemy.animationTime * 3));
@@ -599,18 +607,18 @@ class SkillEnemy {
 const background = new BackgroundBattle(battleLocation[getRandomInt(0, (battleLocation.length - 1))], battleTimes[getRandomInt(0, (battleTimes.length - 1))], getRandomInt(1, 3));
 
 // создаём героя
-const chosenHero = prompt('Введите номер героя которого хотите выбрать: \n1) Самурай \n2) Воин \n3) Рыцарь \n4) Охотница', 1);
-// const chosenHero = 1;
+// const chosenHero = prompt('Введите номер героя которого хотите выбрать: \n1) Самурай \n2) Воин \n3) Рыцарь \n4) Охотница', 1);
+const chosenHero = 1;
 let hero;
 
 if (Number(chosenHero) === 1) {
-  hero = new Hero('Самурай', 'images/heroes/martial-hero', 1600, 200, 4, 6, 4, 6, getRandomInt(43, 53), getRandomInt(14, 21), getRandomInt(1, 6));
+  hero = new Hero('Самурай', 'images/heroes/martial-hero', 200, 4, 8, 8, 6, 4, 6, getRandomInt(43, 53), getRandomInt(14, 21), getRandomInt(1, 6));
 } else if (Number(chosenHero) === 2) {
-  hero = new Hero('Воин', 'images/heroes/medieval-warrior', 1200, 150, 5, 6, 4, 4, getRandomInt(43, 53), getRandomInt(14, 21), getRandomInt(1, 6));
+  hero = new Hero('Воин', 'images/heroes/medieval-warrior', 150, 5, 8, 8, 6, 4, 4, getRandomInt(43, 53), getRandomInt(14, 21), getRandomInt(1, 6));
 } else if (Number(chosenHero) === 3) {
-  hero = new Hero('Рыцарь', 'images/heroes/hero-knight', 1980, 180, 4.2, 11, 4, 7, getRandomInt(43, 53), getRandomInt(14, 21), getRandomInt(1, 6));
+  hero = new Hero('Рыцарь', 'images/heroes/hero-knight', 180, 4.2, 11, 8, 11, 4, 7, getRandomInt(43, 53), getRandomInt(14, 21), getRandomInt(1, 6));
 } else {
-  hero = new Hero('Охотница', 'images/heroes/huntress', 1200, 150, 5, 8, 3, 5, getRandomInt(43, 53), getRandomInt(14, 21), getRandomInt(1, 6));
+  hero = new Hero('Охотница', 'images/heroes/huntress', 150, 5, 8, 8, 8, 3, 5, getRandomInt(43, 53), getRandomInt(14, 21), getRandomInt(1, 6));
 }
 
 // создаём врага
@@ -619,16 +627,16 @@ let enemy;
 
 switch (chosenEnemy) {
   case 1:
-    enemy = new Enemy('Скелет', 'images/enemies/skeleton', 600, 150, 4, 8, 4, getRandomInt(40, 50), getRandomInt(13, 23), getRandomInt(1, 6));
+    enemy = new Enemy('Скелет', 'images/enemies/skeleton', 150, 4, 4, 4, 4, 4, 8, getRandomInt(40, 50), getRandomInt(13, 23), getRandomInt(1, 6));
     break;
   case 2:
-    enemy = new Enemy('Гоблин', 'images/enemies/goblin', 600, 150, 4, 8, 8, getRandomInt(40, 50), getRandomInt(13, 23), getRandomInt(1, 6));
+    enemy = new Enemy('Гоблин', 'images/enemies/goblin', 150, 4, 4, 8, 4, 4, 8, getRandomInt(40, 50), getRandomInt(13, 23), getRandomInt(1, 6));
     break;
   case 3:
-    enemy = new Enemy('Гриб', 'images/enemies/mushroom', 600, 150, 4, 8, 8, getRandomInt(40, 50), getRandomInt(13, 23), getRandomInt(1, 6));
+    enemy = new Enemy('Гриб', 'images/enemies/mushroom', 150, 4, 4, 8, 4, 4, 8, getRandomInt(40, 50), getRandomInt(13, 23), getRandomInt(1, 6));
     break;
   case 4:
-    enemy = new Enemy('Глаз', 'images/enemies/bat', 1200, 150, 4, 8, 8, getRandomInt(40, 50), getRandomInt(13, 23), getRandomInt(1, 6));
+    enemy = new Enemy('Глаз', 'images/enemies/bat', 150, 4, 8, 8, 4, 4, 8, getRandomInt(40, 50), getRandomInt(13, 23), getRandomInt(1, 6));
     break;
 }
 
