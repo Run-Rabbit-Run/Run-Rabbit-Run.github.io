@@ -726,15 +726,7 @@ const armorBreaker = () => {
 const passiveArmorBreaker = new PassiveSkills('Armor Breaker', armorBreaker, 'Каждая атака героя разрушает вражескую броню.', 'icon-weapon-breaker.png');
 
 const inspiration = () => {
-  const skills = attackSkillsIconsHTML.querySelectorAll('.attack-skills__icon');
-  skills.forEach((skill) => {
-    skill.addEventListener('click', () => {
-      enemy.armor = enemy.armor - 1;
-      if (enemy.armor < 0) { enemy.armor = 0;}
-      enemyArmorHTML.textContent = enemy.armor;
-      battleLogHTML.insertAdjacentHTML('beforeend', `<p class="battle-log__item"><span class="enemy-name">${enemy.name}</span> теряет <span class="stats__value--silver">1</span> единицу брони</p>`);
-    });
-  });
+  console.log('Трепещите смертные! Её величество Виталина вступила в битву!');
 };
 const inspirationWave = new PassiveSkills('Inspiration Wave', inspiration, `Ежедневные тренировки, усердное изучение древних фолиантов и вера в себя помогли Вите стать одной из самых могущественных волшебниц Астрала. Она не нуждается в бонусах, вместо этого Вита воодушевляет окружающих.</br>Союзники получают +100 к морали.`, 'icon-vita-power.jpg');
 
