@@ -286,6 +286,8 @@
   border: 0.2vw solid rgb(255, 137, 27);
 
   opacity: 0;
+
+  cursor: default;
 }
 
 .passive-skill__icon {
