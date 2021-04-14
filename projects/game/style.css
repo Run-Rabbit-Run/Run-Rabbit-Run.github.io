@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+.pixelart {
+  image-rendering: pixelated;
+}
+
 .body {
   font-size: 1.35vw;
   font-weight: 600;
